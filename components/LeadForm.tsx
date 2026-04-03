@@ -41,10 +41,10 @@ export default function LeadForm({
     setLoading(true);
     setError("");
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "ff1b416c-54ca-4a11-b0ff-cb74ceb865c7";
 
     const payload = {
-      access_key: accessKey || "YOUR_WEB3FORMS_KEY",
+      access_key: accessKey,
       subject: `New Lead — ${packageName || "General Enquiry"} | ${formData.name} | Zenthoz UAE`,
       from_name: "Zenthoz UAE Website",
       replyto: formData.email,
