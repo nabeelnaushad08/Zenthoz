@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export const WHATSAPP_NUMBER = "971541989921";
 export const PHONE_DISPLAY = "+971 54 198 9921";
 export const PHONE_CALL = "+971541989921";
-export const EMAIL = "info@zenthoz.lk";
+export const EMAIL = "info@zenthoz.com";
 export const SITE_URL = "https://uae.zenthoz.com";
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/zenthoz/consultation";
 
