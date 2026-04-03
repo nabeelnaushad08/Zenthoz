@@ -1,9 +1,31 @@
 import type { Metadata } from "next";
 import IndustryPageTemplate from "@/components/IndustryPageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing for Cleaning Companies UAE | Zenthoz",
-  description: "Get more cleaning contracts in UAE. Google Ads, SEO, and local marketing for cleaning services in Dubai, Abu Dhabi, and Sharjah.",
+  title: "Digital Marketing for Cleaning Companies UAE | Zenthoz UAE",
+  description:
+    "Get more cleaning contracts in UAE. Google Ads, SEO & social media for cleaning companies in Dubai, Abu Dhabi & Sharjah. Rank for 'cleaning company Dubai' & 'maid service UAE'.",
+  keywords: [
+    "cleaning company Dubai",
+    "maid service UAE",
+    "cleaning marketing UAE",
+    "digital marketing cleaning Dubai",
+    "cleaning company SEO UAE",
+    "home cleaning Google Ads Dubai",
+    "villa cleaning Dubai marketing",
+    "cleaning service website UAE",
+    "get cleaning contracts UAE",
+    "cleaning business marketing Dubai",
+    "deep cleaning company Dubai",
+    "maid service marketing UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/industries/cleaning` },
+  openGraph: {
+    title: "Digital Marketing for Cleaning Companies UAE | Zenthoz UAE",
+    description: "Get more cleaning contracts in UAE. Google Ads, SEO & website for cleaning businesses.",
+    url: `${SITE_URL}/industries/cleaning`,
+  },
 };
 
 export default function CleaningPage() {

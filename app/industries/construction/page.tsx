@@ -1,9 +1,31 @@
 import type { Metadata } from "next";
 import IndustryPageTemplate from "@/components/IndustryPageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing for Construction Companies UAE | Zenthoz",
-  description: "Get more construction projects in UAE. Professional website, Google Ads, and SEO for construction companies in Dubai, Abu Dhabi, and across UAE.",
+  title: "Digital Marketing for Construction Companies UAE | Zenthoz UAE",
+  description:
+    "Get more construction projects in UAE. Professional website, Google Ads & SEO for construction companies in Dubai, Abu Dhabi & Sharjah. Get found for 'construction company near me' searches.",
+  keywords: [
+    "construction company Dubai",
+    "digital marketing construction UAE",
+    "website for construction company UAE",
+    "construction marketing Dubai",
+    "construction SEO UAE",
+    "building contractor Dubai marketing",
+    "construction Google Ads UAE",
+    "villa construction Dubai",
+    "fit-out company marketing UAE",
+    "renovation contractor digital marketing",
+    "construction company website UAE",
+    "get construction projects UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/industries/construction` },
+  openGraph: {
+    title: "Digital Marketing for Construction Companies UAE | Zenthoz UAE",
+    description: "Get more construction projects in UAE with digital marketing. Website, SEO & Google Ads for contractors.",
+    url: `${SITE_URL}/industries/construction`,
+  },
 };
 
 export default function ConstructionPage() {

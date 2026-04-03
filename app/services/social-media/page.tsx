@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Social Media Management UAE | Zenthoz — Grow Your Brand",
-  description: "Professional social media management for UAE businesses. Instagram, Facebook & LinkedIn — consistent content, brand growth, and real engagement.",
+  title: "Social Media Management UAE | Instagram & Facebook | Zenthoz UAE",
+  description:
+    "Professional social media management for UAE businesses. Instagram, Facebook & LinkedIn content creation, posting & community management. Grow your brand in Dubai & Abu Dhabi.",
+  keywords: [
+    "social media management UAE",
+    "social media marketing Dubai",
+    "Instagram management UAE",
+    "Facebook marketing Dubai",
+    "social media agency UAE",
+    "content creation UAE",
+    "Instagram marketing Dubai",
+    "social media management Abu Dhabi",
+    "LinkedIn marketing UAE",
+    "TikTok management UAE",
+    "social media company Dubai",
+    "brand social media UAE",
+    "social media posts UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/services/social-media` },
+  openGraph: {
+    title: "Social Media Management UAE | Instagram & Facebook | Zenthoz UAE",
+    description: "Professional social media management for UAE businesses. Grow your Instagram, Facebook & LinkedIn presence.",
+    url: `${SITE_URL}/services/social-media`,
+  },
 };
 
 export default function SocialMediaPage() {
@@ -11,7 +34,7 @@ export default function SocialMediaPage() {
     <ServicePageTemplate
       badge="Social Media Management"
       headline="Build Your Brand on Social Media — Done For You"
-      subheadline="Consistent, professional social media presence on Instagram, Facebook & LinkedIn. We create content, post regularly, and grow your following."
+      subheadline="Consistent, professional social media presence on Instagram, Facebook & LinkedIn. We create content, post regularly, and grow your following across UAE."
       emoji="📲"
       color="text-pink-400"
       bgColor="bg-pink-600/20"

@@ -1,9 +1,31 @@
 import type { Metadata } from "next";
 import IndustryPageTemplate from "@/components/IndustryPageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing for HVAC Companies UAE | Zenthoz",
-  description: "Get more AC repair and HVAC installation jobs in UAE. Google Ads, SEO, and local marketing for HVAC businesses in Dubai and Abu Dhabi.",
+  title: "Digital Marketing for HVAC Companies UAE | AC Repair Dubai | Zenthoz UAE",
+  description:
+    "Get more AC repair and HVAC installation jobs in UAE. Google Ads, local SEO & website for HVAC businesses in Dubai, Abu Dhabi & Sharjah. Rank for 'AC repair Dubai' searches.",
+  keywords: [
+    "AC repair Dubai marketing",
+    "HVAC company marketing UAE",
+    "AC repair Google Ads Dubai",
+    "HVAC SEO UAE",
+    "air conditioning company website UAE",
+    "AC service digital marketing Dubai",
+    "HVAC Google Ads UAE",
+    "get AC repair jobs Dubai",
+    "AC installation marketing UAE",
+    "HVAC company website Dubai",
+    "air conditioner repair Dubai leads",
+    "AC maintenance marketing UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/industries/hvac` },
+  openGraph: {
+    title: "Digital Marketing for HVAC Companies UAE | Zenthoz UAE",
+    description: "Get more AC & HVAC jobs in UAE with Google Ads, SEO & local marketing.",
+    url: `${SITE_URL}/industries/hvac`,
+  },
 };
 
 export default function HVACPage() {
@@ -12,7 +34,7 @@ export default function HVACPage() {
       emoji="❄️"
       industry="HVAC"
       headline="Get More AC & HVAC Jobs in UAE"
-      subheadline="Targeted digital marketing that puts your HVAC business in front of homeowners and businesses when they need you most."
+      subheadline="Targeted digital marketing that puts your HVAC business in front of homeowners and businesses when they need you most — in Dubai, Abu Dhabi & Sharjah."
       challenges={[
         "HVAC customers search Google in an emergency — if you're not visible, you lose the job",
         "Seasonal demand peaks are missed without a system to capture urgent leads",

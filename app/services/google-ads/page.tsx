@@ -1,9 +1,33 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Google Ads Management UAE | Zenthoz — Get Leads Today",
-  description: "Expert Google Ads management for UAE businesses. Get in front of ready-to-buy customers today. Maximize ROI with targeted campaigns.",
+  title: "Google Ads Management UAE | PPC Agency Dubai | Zenthoz UAE",
+  description:
+    "Expert Google Ads management for UAE businesses. Get qualified leads from Dubai, Abu Dhabi & Sharjah today. Maximize ROI with targeted PPC campaigns. No wasted budget.",
+  keywords: [
+    "Google Ads UAE",
+    "Google Ads Dubai",
+    "PPC management UAE",
+    "Google Ads agency Dubai",
+    "PPC agency UAE",
+    "Google Ads management Abu Dhabi",
+    "paid advertising UAE",
+    "Google Ads campaign Dubai",
+    "PPC Dubai",
+    "Google advertising UAE",
+    "SEM UAE",
+    "paid search Dubai",
+    "Google Ads specialist UAE",
+    "lead generation Google Ads UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/services/google-ads` },
+  openGraph: {
+    title: "Google Ads Management UAE | PPC Agency Dubai | Zenthoz UAE",
+    description: "Expert Google Ads for UAE businesses. Get qualified leads today. Maximize ROI.",
+    url: `${SITE_URL}/services/google-ads`,
+  },
 };
 
 export default function GoogleAdsPage() {
@@ -11,7 +35,7 @@ export default function GoogleAdsPage() {
     <ServicePageTemplate
       badge="Google Ads (PPC) Management"
       headline="Put Your Business in Front of Customers Ready to Buy — Today"
-      subheadline="UAE-targeted Google Ads campaigns that bring in qualified leads immediately. Maximum ROI, zero wasted budget."
+      subheadline="UAE-targeted Google Ads campaigns that bring in qualified leads immediately. Maximum ROI, zero wasted budget — for businesses in Dubai, Abu Dhabi & Sharjah."
       emoji="🎯"
       color="text-amber-400"
       bgColor="bg-amber-600/20"
@@ -29,7 +53,7 @@ export default function GoogleAdsPage() {
       ]}
       whyItMatters={[
         "Google Ads puts you at the very top of search results — above all organic listings — instantly.",
-        "UAE consumers trust Google ads for finding service businesses — especially in construction, cleaning, and professional services.",
+        "UAE consumers trust Google ads for finding service businesses — especially construction, cleaning, and professional services.",
         "With precise UAE targeting, your ads only show to people in your service areas.",
         "Unlike SEO, Google Ads generates leads from day one — critical for new businesses.",
         "You only pay when someone clicks — no wasted budget on people not interested in your service.",

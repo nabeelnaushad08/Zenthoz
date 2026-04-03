@@ -1,9 +1,31 @@
 import type { Metadata } from "next";
 import IndustryPageTemplate from "@/components/IndustryPageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing for Service Businesses UAE | Zenthoz",
-  description: "Get more clients for your service business in UAE. Professional website, Google Ads, and local SEO for service companies in Dubai and Abu Dhabi.",
+  title: "Digital Marketing for Service Businesses UAE | Zenthoz UAE",
+  description:
+    "Get more clients for your service business in UAE. Website, Google Ads & local SEO for consultants, professionals & service companies in Dubai, Abu Dhabi & Sharjah.",
+  keywords: [
+    "service business marketing UAE",
+    "professional services digital marketing Dubai",
+    "consultant marketing UAE",
+    "service company website Dubai",
+    "professional services SEO UAE",
+    "B2B marketing UAE",
+    "business consultant website Dubai",
+    "service business Google Ads UAE",
+    "professional services leads UAE",
+    "service company digital marketing Dubai",
+    "HR consulting marketing UAE",
+    "accounting firm marketing Dubai",
+  ],
+  alternates: { canonical: `${SITE_URL}/industries/services` },
+  openGraph: {
+    title: "Digital Marketing for Service Businesses UAE | Zenthoz UAE",
+    description: "Get more clients for your UAE service business. Website, SEO & Google Ads for professionals in Dubai.",
+    url: `${SITE_URL}/industries/services`,
+  },
 };
 
 export default function ServiceBusinessesPage() {
@@ -12,7 +34,7 @@ export default function ServiceBusinessesPage() {
       emoji="💼"
       industry="Service"
       headline="Get More Clients for Your Service Business in UAE"
-      subheadline="Professional digital presence that generates consistent leads and bookings for UAE service businesses — from consultants to professionals."
+      subheadline="Professional digital presence that generates consistent leads and bookings for UAE service businesses — from consultants to professionals in Dubai & Abu Dhabi."
       challenges={[
         "Service businesses are invisible online — clients go to whoever they find on Google first",
         "Hard to build trust with new clients without a professional website and reviews",

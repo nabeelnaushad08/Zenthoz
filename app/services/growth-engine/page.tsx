@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Growth Engine UAE | Zenthoz — Complete Business Growth System",
-  description: "The complete UAE business growth system. Website + Social Media + SEO + Google Ads + Lead Tracking — all working together to get you clients fast.",
+  title: "Growth Engine UAE | Complete Digital Marketing System | Zenthoz UAE",
+  description:
+    "The complete UAE business growth system. Website + Social Media + SEO + Google Ads + Lead Tracking — everything working together to get your business clients fast in Dubai & Abu Dhabi.",
+  keywords: [
+    "digital marketing system UAE",
+    "full service marketing UAE",
+    "business growth UAE",
+    "complete marketing package Dubai",
+    "growth engine Dubai",
+    "digital marketing package UAE",
+    "all-in-one marketing UAE",
+    "full digital marketing UAE",
+    "marketing system Dubai",
+    "get more clients UAE",
+    "lead generation system UAE",
+    "digital growth UAE",
+    "marketing agency full service Dubai",
+  ],
+  alternates: { canonical: `${SITE_URL}/services/growth-engine` },
+  openGraph: {
+    title: "Growth Engine UAE | Complete Digital Marketing System | Zenthoz UAE",
+    description: "Complete UAE business growth system. Website + Social + SEO + Ads + Lead Tracking — get clients fast.",
+    url: `${SITE_URL}/services/growth-engine`,
+  },
 };
 
 export default function GrowthEnginePage() {

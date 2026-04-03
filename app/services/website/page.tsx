@@ -1,9 +1,33 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Professional Website Design UAE | Zenthoz — 7-Day Delivery",
-  description: "Get a professional, mobile-first website for your UAE business in just 7 days. SEO-ready, WhatsApp integrated, built to convert visitors into customers.",
+  title: "Professional Website Design UAE | 7-Day Delivery | Zenthoz UAE",
+  description:
+    "Get a professional business website in 7 days. Mobile-first, SEO-ready, WhatsApp integrated. Trusted by UAE businesses in Dubai, Abu Dhabi & Sharjah. Starting from AED 1,999.",
+  keywords: [
+    "website design UAE",
+    "website design Dubai",
+    "professional website Dubai",
+    "business website UAE",
+    "web design Abu Dhabi",
+    "website development Dubai",
+    "affordable website UAE",
+    "website design Sharjah",
+    "SEO website Dubai",
+    "mobile website UAE",
+    "web developer Dubai",
+    "website for small business UAE",
+    "e-commerce website UAE",
+    "website design 7 days UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/services/website` },
+  openGraph: {
+    title: "Professional Website Design UAE | 7-Day Delivery | Zenthoz UAE",
+    description: "Professional business website in 7 days. Mobile-first, SEO-ready. From AED 1,999.",
+    url: `${SITE_URL}/services/website`,
+  },
 };
 
 export default function WebsitePage() {
@@ -11,7 +35,7 @@ export default function WebsitePage() {
     <ServicePageTemplate
       badge="Website Design & Development"
       headline="Professional Business Website in 7 Days"
-      subheadline="Mobile-first, SEO-ready, and designed to convert visitors into customers. Built specifically for UAE businesses."
+      subheadline="Mobile-first, SEO-ready, and designed to convert visitors into customers. Built specifically for UAE businesses in Dubai, Abu Dhabi & Sharjah."
       emoji="🌐"
       color="text-blue-400"
       bgColor="bg-blue-600/20"
@@ -20,7 +44,7 @@ export default function WebsitePage() {
       features={[
         { emoji: "📱", title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops." },
         { emoji: "🔍", title: "SEO Ready", desc: "Built with Google in mind. Technical SEO foundation from day one." },
-        { emoji: "💬", title: "WhatsApp Integration", desc: "One-click WhatsApp button so customers can reach you instantly." },
+        { emoji: "💬", title: "WhatsApp Integration", desc: "One-click WhatsApp button so UAE customers can reach you instantly." },
         { emoji: "⚡", title: "Lightning Fast", desc: "Optimized for speed. Fast sites rank higher and convert better." },
         { emoji: "🔒", title: "SSL & Security", desc: "Secure by default. Free SSL certificate included." },
         { emoji: "📊", title: "Analytics Built In", desc: "Track visitors, traffic sources, and conversions from day one." },

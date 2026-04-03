@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
 import IndustryPageTemplate from "@/components/IndustryPageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing for Retail Shops UAE | Zenthoz",
-  description: "Grow your retail business in UAE. E-commerce website, social media, and Google presence that brings customers to your shop and online store.",
+  title: "Digital Marketing for Retail Shops UAE | E-commerce Dubai | Zenthoz UAE",
+  description:
+    "Grow your retail business in UAE. E-commerce website, Instagram marketing & Google presence for shops in Dubai, Abu Dhabi & Sharjah. Drive foot traffic and online sales.",
+  keywords: [
+    "retail shop marketing UAE",
+    "e-commerce website Dubai",
+    "retail digital marketing UAE",
+    "online shop website Dubai",
+    "retail SEO UAE",
+    "Instagram marketing for shops UAE",
+    "retail store marketing Dubai",
+    "e-commerce UAE",
+    "online store Dubai",
+    "boutique marketing UAE",
+    "retail business growth Dubai",
+    "shop website UAE",
+    "WhatsApp commerce UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/industries/retail` },
+  openGraph: {
+    title: "Digital Marketing for Retail Shops UAE | Zenthoz UAE",
+    description: "Grow your retail shop in UAE. E-commerce, Instagram & Google marketing for Dubai & Abu Dhabi shops.",
+    url: `${SITE_URL}/industries/retail`,
+  },
 };
 
 export default function RetailPage() {
@@ -12,7 +35,7 @@ export default function RetailPage() {
       emoji="🛍️"
       industry="Retail"
       headline="Get More Customers to Your Retail Shop in UAE"
-      subheadline="Online presence, social media, and local marketing that drives foot traffic and online sales for UAE retail businesses."
+      subheadline="Online presence, social media, and local marketing that drives foot traffic and online sales for UAE retail businesses in Dubai, Abu Dhabi & Sharjah."
       challenges={[
         "Large malls and e-commerce giants are taking customers away from local retail",
         "No Instagram presence means missing out on UAE's primary product discovery platform",

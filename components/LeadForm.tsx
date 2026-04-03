@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
-import { submitLead, LeadData } from "@/lib/supabase";
-import { getWhatsAppLink } from "@/lib/utils";
+import { getWhatsAppLink, EMAIL } from "@/lib/utils";
 
 interface LeadFormProps {
   source?: string;
@@ -31,7 +30,9 @@ export default function LeadForm({
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -40,15 +41,61 @@ export default function LeadForm({
     setLoading(true);
     setError("");
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+    const payload = {
+      access_key: accessKey || "YOUR_WEB3FORMS_KEY",
+      subject: `New Lead — ${packageName || "General Enquiry"} | ${formData.name} | Zenthoz UAE`,
+      from_name: "Zenthoz UAE Website",
+      replyto: formData.email,
+      // Format a clean email body
+      message: `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NEW LEAD — ZENTHOZ UAE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Name:          ${formData.name}
+📧 Email:         ${formData.email}
+📱 Phone/WhatsApp:${formData.phone}
+🏢 Business Name: ${formData.business_name || "Not provided"}
+🏭 Industry:      ${formData.industry || "Not specified"}
+📦 Package Interest: ${packageName || "General Enquiry"}
+🌐 Source:        ${source}
+
+💬 Message:
+${formData.message || "No message provided"}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Submitted: ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })} (UAE Time)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      `.trim(),
+      // Also send structured fields so Web3Forms formats them nicely
+      "Full Name": formData.name,
+      "Email Address": formData.email,
+      "Phone / WhatsApp": formData.phone,
+      "Business Name": formData.business_name || "—",
+      Industry: formData.industry || "—",
+      "Package Interest": packageName || "General Enquiry",
+      Source: source,
+      "Their Message": formData.message || "—",
+    };
+
     try {
-      const leadData: LeadData = {
-        ...formData,
-        package: packageName,
-        source,
-      };
-      await submitLead(leadData);
-      setSuccess(true);
-    } catch {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSuccess(true);
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch (err: any) {
+      console.error(err);
       setError("Something went wrong. Please try WhatsApp instead.");
     } finally {
       setLoading(false);
@@ -65,10 +112,17 @@ export default function LeadForm({
         <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="w-8 h-8 text-green-400" />
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">We'll Contact You Soon!</h3>
-        <p className="text-slate-400 mb-6">Our team will reach out within 2 hours. For faster response, WhatsApp us now.</p>
+        <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
+        <p className="text-slate-400 mb-2">
+          We received your details and will contact you within 2 hours.
+        </p>
+        <p className="text-slate-500 text-sm mb-6">
+          A confirmation has been sent to <span className="text-purple-400">{formData.email}</span>
+        </p>
         <a
-          href={getWhatsAppLink(`Hi! I just submitted a form on your website. My name is ${formData.name} and I'm interested in ${packageName || "your services"}.`)}
+          href={getWhatsAppLink(
+            `Hi! I just submitted a form on your website. My name is ${formData.name} and I'm interested in ${packageName || "your services"}.`
+          )}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp justify-center w-full"
@@ -90,7 +144,9 @@ export default function LeadForm({
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1.5">Full Name *</label>
+            <label className="block text-xs font-medium text-slate-400 mb-1.5">
+              Full Name *
+            </label>
             <input
               type="text"
               name="name"
@@ -98,25 +154,29 @@ export default function LeadForm({
               value={formData.name}
               onChange={handleChange}
               placeholder="Ahmed Al-Rashid"
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 transition-all text-sm"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 transition-all text-sm"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-slate-400 mb-1.5">Phone / WhatsApp *</label>
+            <label className="block text-xs font-medium text-slate-400 mb-1.5">
+              Phone / WhatsApp *
+            </label>
             <input
               type="tel"
               name="phone"
               required
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+971 50 000 0000"
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 transition-all text-sm"
+              placeholder="+971 54 000 0000"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 transition-all text-sm"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Email Address *</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">
+            Email Address *
+          </label>
           <input
             type="email"
             name="email"
@@ -124,24 +184,28 @@ export default function LeadForm({
             value={formData.email}
             onChange={handleChange}
             placeholder="ahmed@business.ae"
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 transition-all text-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 transition-all text-sm"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Business Name</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">
+            Business Name
+          </label>
           <input
             type="text"
             name="business_name"
             value={formData.business_name}
             onChange={handleChange}
             placeholder="My Business LLC"
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 transition-all text-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 transition-all text-sm"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Industry</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">
+            Industry
+          </label>
           <select
             name="industry"
             value={formData.industry}
@@ -149,33 +213,33 @@ export default function LeadForm({
             className="w-full px-4 py-3 rounded-xl bg-[#0a1628] border border-white/10 text-slate-300 focus:outline-none focus:border-purple-500/50 transition-all text-sm"
           >
             <option value="">Select your industry</option>
-            <option value="construction">Construction</option>
-            <option value="retail">Retail</option>
-            <option value="hvac">HVAC</option>
-            <option value="cleaning">Cleaning Services</option>
-            <option value="restaurant">Restaurant / F&B</option>
-            <option value="services">Professional Services</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="real-estate">Real Estate</option>
-            <option value="other">Other</option>
+            <option value="Construction">Construction</option>
+            <option value="Retail">Retail</option>
+            <option value="HVAC">HVAC</option>
+            <option value="Cleaning Services">Cleaning Services</option>
+            <option value="Restaurant / F&B">Restaurant / F&B</option>
+            <option value="Professional Services">Professional Services</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">Tell us about your business</label>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">
+            Tell us about your business
+          </label>
           <textarea
             name="message"
             rows={3}
             value={formData.message}
             onChange={handleChange}
             placeholder="I just registered my business and need help getting online..."
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 transition-all text-sm resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/50 transition-all text-sm resize-none"
           />
         </div>
 
-        {error && (
-          <p className="text-red-400 text-sm">{error}</p>
-        )}
+        {error && <p className="text-red-400 text-sm">{error}</p>}
 
         <button
           type="submit"
@@ -185,7 +249,7 @@ export default function LeadForm({
           {loading ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Submitting...
+              Sending...
             </>
           ) : (
             <>
@@ -196,7 +260,10 @@ export default function LeadForm({
         </button>
 
         <p className="text-xs text-center text-slate-500">
-          No spam, ever. We'll contact you within 2 hours.
+          We'll reply within 2 hours •{" "}
+          <a href={`mailto:${EMAIL}`} className="text-purple-400 hover:underline">
+            {EMAIL}
+          </a>
         </p>
       </form>
     </div>

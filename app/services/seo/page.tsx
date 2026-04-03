@@ -1,9 +1,34 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "SEO Services UAE | Zenthoz — Rank on Google & Get More Clients",
-  description: "Professional SEO services for UAE businesses. Rank higher on Google, get found by local customers, and grow your business organically.",
+  title: "SEO Services UAE | Rank on Google & Get More Clients | Zenthoz UAE",
+  description:
+    "Expert SEO services for UAE businesses. Rank higher on Google in Dubai, Abu Dhabi & Sharjah. Local SEO, Google My Business optimization & content strategy to grow your clients organically.",
+  keywords: [
+    "SEO services UAE",
+    "SEO Dubai",
+    "local SEO UAE",
+    "Google ranking UAE",
+    "SEO company Dubai",
+    "SEO agency UAE",
+    "Google My Business optimization UAE",
+    "local SEO Dubai",
+    "SEO Abu Dhabi",
+    "search engine optimization UAE",
+    "Google ranking Dubai",
+    "SEO for small business UAE",
+    "Arabic SEO UAE",
+    "SEO Sharjah",
+    "rank on Google UAE",
+  ],
+  alternates: { canonical: `${SITE_URL}/services/seo` },
+  openGraph: {
+    title: "SEO Services UAE | Rank on Google | Zenthoz UAE",
+    description: "Expert SEO services for UAE businesses. Rank higher on Google in Dubai, Abu Dhabi & Sharjah.",
+    url: `${SITE_URL}/services/seo`,
+  },
 };
 
 export default function SEOPage() {
@@ -11,7 +36,7 @@ export default function SEOPage() {
     <ServicePageTemplate
       badge="Search Engine Optimization"
       headline="Help Your Business Appear on Google — Get Found by Customers"
-      subheadline="UAE-focused SEO strategy that gets your business ranking for the keywords your customers search every day."
+      subheadline="UAE-focused SEO strategy that gets your business ranking for the exact keywords your customers in Dubai, Abu Dhabi & Sharjah search every day."
       emoji="🔍"
       color="text-green-400"
       bgColor="bg-green-600/20"
@@ -20,7 +45,7 @@ export default function SEOPage() {
       features={[
         { emoji: "📍", title: "Local UAE SEO", desc: "Dominate local Google searches in Dubai, Abu Dhabi, Sharjah and across UAE." },
         { emoji: "🗺️", title: "Google My Business", desc: "Complete GMB optimization so you appear in Google Maps and local packs." },
-        { emoji: "📝", title: "Content Strategy", desc: "SEO-optimized blog posts and pages targeting your ideal customers." },
+        { emoji: "📝", title: "Content Strategy", desc: "SEO-optimized blog posts and pages targeting your ideal UAE customers." },
         { emoji: "🔗", title: "Link Building", desc: "Quality backlinks from UAE-relevant websites to boost your authority." },
         { emoji: "🎯", title: "Keyword Research", desc: "Find the exact keywords your UAE customers are searching for." },
         { emoji: "⚡", title: "Technical SEO", desc: "Site speed, structure, and technical optimization for Google." },
@@ -32,7 +57,7 @@ export default function SEOPage() {
         "Businesses on page 1 of Google get 95% of all clicks — page 2 is effectively invisible.",
         "Local SEO in UAE is less competitive than in the West — now is the perfect time to establish dominance.",
         "Organic traffic from SEO is free — once you rank, you get clients without paying for every click.",
-        "Google My Business optimization puts you on Google Maps where UAE customers are searching for local services.",
+        "Google My Business optimization puts you on Google Maps where UAE customers search for local services.",
       ]}
       pricing={[
         {
