@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import CTASection from "@/components/sections/CTASection";
+import { EmojiIcon } from "@/components/ServiceIcons";
 import { getWhatsAppLink } from "@/lib/utils";
 
 interface PricingTier {
@@ -68,7 +69,7 @@ export default function ServicePageTemplate({
             animate={{ opacity: 1, y: 0 }}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 border ${borderColor} ${bgColor}`}
           >
-            <span>{emoji}</span>
+            <EmojiIcon emoji={emoji} size={20} />
             <span className={color}>{badge}</span>
           </motion.div>
 
@@ -134,8 +135,8 @@ export default function ServicePageTemplate({
                 variants={fadeUp}
                 className="glass-card rounded-2xl p-6"
               >
-                <div className={`w-12 h-12 rounded-xl ${bgColor} border ${borderColor} flex items-center justify-center mb-4 text-2xl`}>
-                  {f.emoji}
+                <div className="mb-4">
+                  <EmojiIcon emoji={f.emoji} size={48} />
                 </div>
                 <h3 className="font-bold text-white mb-2">{f.title}</h3>
                 <p className="text-slate-400 text-sm">{f.desc}</p>

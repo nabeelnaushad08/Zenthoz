@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Heart, Target, Zap, Shield, Users, Globe } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CTASection from "@/components/sections/CTASection";
+import {
+  GrowthEngineIcon, SEOIcon, DesignIcon, GoogleAdsIcon,
+  TargetIcon, SpeedIcon, WhatsAppIcon, SecurityIcon, UsersIcon, GlobeNetIcon,
+} from "@/components/ServiceIcons";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -15,19 +19,19 @@ const fadeUp = {
 };
 
 const values = [
-  { icon: Target, title: "Results Over Vanity", desc: "We don't care about followers. We care about clients. Every strategy we implement is measured by revenue impact." },
-  { icon: Zap, title: "Speed is a Feature", desc: "UAE businesses can't wait. We deliver in 7-14 days because we know how critical momentum is for new businesses." },
-  { icon: Heart, title: "Local First", desc: "We understand UAE culture, consumer behavior, and the regulatory environment. This isn't copy-paste from Western agencies." },
-  { icon: Shield, title: "Radical Transparency", desc: "You'll always know what we're doing and why. Clear reporting. No jargon. Real numbers." },
-  { icon: Users, title: "Partnership Mindset", desc: "We're not a vendor — we're a growth partner. Your success is our success, which is why we guarantee results." },
-  { icon: Globe, title: "Built for UAE", desc: "Every strategy, every piece of content, every ad — designed specifically for the UAE market and consumer." },
+  { Icon: TargetIcon, title: "Results Over Vanity", desc: "We don't care about followers. We care about clients. Every strategy we implement is measured by revenue impact." },
+  { Icon: SpeedIcon, title: "Speed is a Feature", desc: "UAE businesses can't wait. We deliver in 7-14 days because we know how critical momentum is for new businesses." },
+  { Icon: WhatsAppIcon, title: "Local First", desc: "We understand UAE culture, consumer behavior, and the regulatory environment. This isn't copy-paste from Western agencies." },
+  { Icon: SecurityIcon, title: "Radical Transparency", desc: "You'll always know what we're doing and why. Clear reporting. No jargon. Real numbers." },
+  { Icon: UsersIcon, title: "Partnership Mindset", desc: "We're not a vendor — we're a growth partner. Your success is our success, which is why we guarantee results." },
+  { Icon: GlobeNetIcon, title: "Built for UAE", desc: "Every strategy, every piece of content, every ad — designed specifically for the UAE market and consumer." },
 ];
 
 const team = [
-  { name: "Nabeel Naushad", role: "Founder & Growth Strategist", emoji: "🚀", desc: "Digital growth expert with deep UAE market knowledge. Led growth for 35+ businesses across UAE." },
-  { name: "Digital Strategy Team", role: "SEO & Content", emoji: "🔍", desc: "UAE-focused SEO specialists who understand local search behavior and Arabic keyword research." },
-  { name: "Creative Team", role: "Design & Development", emoji: "🎨", desc: "Designers and developers who build fast, beautiful, conversion-focused websites for UAE businesses." },
-  { name: "Ads Team", role: "Google & Social Ads", emoji: "🎯", desc: "Certified Google Ads specialists managing millions in UAE ad spend with proven ROI track record." },
+  { name: "Nabeel Naushad", role: "Founder & Growth Strategist", Icon: GrowthEngineIcon, desc: "Digital growth expert with deep UAE market knowledge. Led growth for 35+ businesses across UAE." },
+  { name: "Digital Strategy Team", role: "SEO & Content", Icon: SEOIcon, desc: "UAE-focused SEO specialists who understand local search behavior and Arabic keyword research." },
+  { name: "Creative Team", role: "Design & Development", Icon: DesignIcon, desc: "Designers and developers who build fast, beautiful, conversion-focused websites for UAE businesses." },
+  { name: "Ads Team", role: "Google & Social Ads", Icon: GoogleAdsIcon, desc: "Certified Google Ads specialists managing millions in UAE ad spend with proven ROI track record." },
 ];
 
 export default function AboutPage() {
@@ -141,8 +145,8 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="glass-card rounded-2xl p-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-purple-400" />
+                <div className="mb-4">
+                  <value.Icon size={48} />
                 </div>
                 <h3 className="font-bold text-white mb-2">{value.title}</h3>
                 <p className="text-slate-400 text-sm">{value.desc}</p>
@@ -172,7 +176,9 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="glass-card rounded-2xl p-6 text-center"
               >
-                <div className="text-5xl mb-4">{member.emoji}</div>
+                <div className="flex justify-center mb-4">
+                  <member.Icon size={56} />
+                </div>
                 <h3 className="font-bold text-white mb-0.5">{member.name}</h3>
                 <div className="text-xs font-medium text-purple-400 mb-3">{member.role}</div>
                 <p className="text-slate-400 text-sm">{member.desc}</p>

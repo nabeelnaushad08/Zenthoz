@@ -438,3 +438,148 @@ export function ServiceBizIcon({ size = 56, className = "" }: IconProps) {
     </svg>
   );
 }
+
+// ── Additional feature icons ────────────────────────────────────────────────
+
+export function TrophyIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(245,158,11,0.15)" />
+      <path d="M16 10h16v16a8 8 0 01-16 0V10z" stroke="#f59e0b" strokeWidth="2" fill="none"/>
+      <path d="M16 16H10a4 4 0 004 4h2M32 16h6a4 4 0 01-4 4h-2" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M24 26v8M18 38h12" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+export function BudgetIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(34,197,94,0.15)" />
+      <circle cx="24" cy="24" r="13" stroke="#22c55e" strokeWidth="2" fill="none"/>
+      <path d="M24 14v2M24 32v2" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M19 19.5c0-2 2-3 5-3s5 1 5 3-2 2.5-5 3-5 1-5 3 2 3 5 3 5-1 5-3" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+export function GlobeNetIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(59,130,246,0.15)" />
+      <circle cx="24" cy="24" r="13" stroke="#3b82f6" strokeWidth="2" fill="none"/>
+      <path d="M11 24h26M24 11c0 0-6 4-6 13s6 13 6 13M24 11c0 0 6 4 6 13s-6 13-6 13" stroke="#3b82f6" strokeWidth="1.5" fill="none"/>
+    </svg>
+  );
+}
+
+export function GearIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(100,116,139,0.15)" />
+      <path d="M24 14a2 2 0 012 2v1.3a8.9 8.9 0 012.6 1.5l1.1-.6a2 2 0 012.8.7l1 1.7a2 2 0 01-.7 2.7l-1.1.6c.1.7.1 1.4 0 2.1l1.1.6a2 2 0 01.7 2.7l-1 1.7a2 2 0 01-2.8.7l-1.1-.6A8.9 8.9 0 0126 32.7V34a2 2 0 01-4 0v-1.3a8.9 8.9 0 01-2.6-1.5l-1.1.6a2 2 0 01-2.8-.7l-1-1.7a2 2 0 01.7-2.7l1.1-.6a9 9 0 010-2.1l-1.1-.6a2 2 0 01-.7-2.7l1-1.7a2 2 0 012.8-.7l1.1.6A8.9 8.9 0 0122 15.3V14a2 2 0 012-2z" stroke="#94a3b8" strokeWidth="2" fill="none"/>
+      <circle cx="24" cy="24" r="3.5" stroke="#94a3b8" strokeWidth="2" fill="none"/>
+    </svg>
+  );
+}
+
+export function HashtagIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(236,72,153,0.15)" />
+      <path d="M17 14l-4 20M35 14l-4 20M11 19h26M10 29h26" stroke="#ec4899" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+export function ImageIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(139,92,246,0.15)" />
+      <rect x="9" y="13" width="30" height="22" rx="3" stroke="#8b5cf6" strokeWidth="2" fill="none"/>
+      <circle cx="17" cy="20" r="3" fill="#8b5cf6" fillOpacity="0.5"/>
+      <path d="M9 28l8-7 7 6 5-4 10 8" stroke="#8b5cf6" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+    </svg>
+  );
+}
+
+export function ShieldIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(99,102,241,0.15)" />
+      <path d="M24 8l-13 5v11c0 7.5 5.6 14.5 13 17 7.4-2.5 13-9.5 13-17V13L24 8z" stroke="#6366f1" strokeWidth="2" fill="none"/>
+      <path d="M18 24l4 4 8-8" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+// ── Emoji → SVG icon lookup map ────────────────────────────────────────────
+// Used by ServicePageTemplate and IndustryPageTemplate to replace emoji with SVG
+
+type IconComponent = (props: IconProps) => JSX.Element;
+
+export const EMOJI_ICON_MAP: Record<string, IconComponent> = {
+  // Top-level service badge icons
+  "📲": SocialMediaIcon,
+  "🔍": SEOIcon,
+  "🎯": GoogleAdsIcon,
+
+  // Website features
+  "📱": MobileIcon,
+  "💬": WhatsAppIcon,
+  "🔒": SecurityIcon,
+  "📊": AnalyticsIcon,
+  "🎨": DesignIcon,
+  "🌍": BilingualIcon,
+  "🌐": GlobeNetIcon,
+
+  // Social media features
+  "🖼️": ImageIcon,
+  "📅": CalendarIcon,
+  "🎬": VideoIcon,
+  "👥": UsersIcon,
+  "📈": GrowthEngineIcon,
+  "#️⃣": HashtagIcon,
+
+  // SEO features
+  "📍": MapPinIcon,
+  "🗺️": MapPinIcon,
+  "📝": ContentIcon,
+  "🔗": LinkBuildIcon,
+  "🏆": TrophyIcon,
+
+  // Google Ads features
+  "⚡": SpeedIcon,
+  "💰": BudgetIcon,
+  "🔎": SearchRankIcon,
+  "🔄": RetargetIcon,
+  "📞": CallTrackIcon,
+
+  // Growth Engine features
+  "🛡️": ShieldIcon,
+
+  // Industry hero icons
+  "🏗️": ConstructionIcon,
+  "🛍️": RetailIcon,
+  "❄️": HVACIcon,
+  "🧹": CleaningIcon,
+  "💼": ServiceBizIcon,
+
+  // About team + misc
+  "🚀": GrowthEngineIcon,
+};
+
+/** Renders an SVG icon if the emoji has a mapping, otherwise renders the emoji as text. */
+export function EmojiIcon({
+  emoji,
+  size = 48,
+  className = "",
+}: {
+  emoji: string;
+  size?: number;
+  className?: string;
+}) {
+  const Icon = EMOJI_ICON_MAP[emoji];
+  if (Icon) return <Icon size={size} className={className} />;
+  return <span className="text-3xl">{emoji}</span>;
+}

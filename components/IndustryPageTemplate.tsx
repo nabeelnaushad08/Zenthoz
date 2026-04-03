@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CheckCircle, ArrowRight, TrendingUp, Users, Star } from "lucide-react";
+import { CheckCircle, ArrowRight, TrendingUp, Star } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import CTASection from "@/components/sections/CTASection";
+import { EmojiIcon } from "@/components/ServiceIcons";
 import { getWhatsAppLink } from "@/lib/utils";
 
 interface CaseStudy {
@@ -60,9 +61,9 @@ export default function IndustryPageTemplate({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl mb-6"
+            className="flex justify-center mb-6"
           >
-            {emoji}
+            <EmojiIcon emoji={emoji} size={72} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
