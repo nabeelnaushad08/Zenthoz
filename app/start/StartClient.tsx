@@ -29,7 +29,7 @@ const includedFeatures = [
 const trustPoints = [
   { icon: Clock, text: "7–14 Day Delivery", desc: "From signup to live" },
   { icon: Shield, text: "14-Day Guarantee", desc: "Or we work for free" },
-  { icon: Users, text: "100+ UAE Businesses", desc: "Already launched" },
+  { icon: Users, text: "35+ UAE Businesses", desc: "Already launched" },
   { icon: Star, text: "5-Star Support", desc: "WhatsApp & email" },
 ];
 

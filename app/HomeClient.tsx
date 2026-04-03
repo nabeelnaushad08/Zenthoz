@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Globe, Share2, Search, Target, Zap, Shield, Clock, TrendingUp, Users, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustStrip from "@/components/sections/TrustStrip";
 import CTASection from "@/components/sections/CTASection";
+import {
+  WebDesignIcon, SocialMediaIcon, SEOIcon, GoogleAdsIcon, GrowthEngineIcon, LeadGenIcon,
+} from "@/components/ServiceIcons";
+import CustomPackageBuilder from "@/components/CustomPackageBuilder";
 import { getWhatsAppLink } from "@/lib/utils";
 
 const fadeUp = {
@@ -25,10 +29,10 @@ const problems = [
 ];
 
 const solutions = [
-  { icon: Globe, title: "Professional Website", desc: "Mobile-first, fast, SEO-ready in 7 days" },
-  { icon: Share2, title: "Social Media Setup", desc: "Instagram, Facebook & LinkedIn presence" },
-  { icon: Search, title: "Google Visibility", desc: "Google My Business + SEO foundation" },
-  { icon: Target, title: "Lead Generation", desc: "Ads & funnels that bring real customers" },
+  { Icon: WebDesignIcon, title: "Professional Website", desc: "Mobile-first, fast, SEO-ready in 7 days" },
+  { Icon: SocialMediaIcon, title: "Social Media Setup", desc: "Instagram, Facebook & LinkedIn presence" },
+  { Icon: SEOIcon, title: "Google Visibility", desc: "Google My Business + SEO foundation" },
+  { Icon: LeadGenIcon, title: "Lead Generation", desc: "Ads & funnels that bring real customers" },
 ];
 
 const process = [
@@ -111,7 +115,7 @@ export default function HomePage() {
         stats={[
           { value: "30", label: "Days to First Clients" },
           { value: "7–14", label: "Days Delivery" },
-          { value: "100+", label: "UAE Businesses" },
+          { value: "35+", label: "UAE Businesses" },
           { value: "100%", label: "Satisfaction Rate" },
         ]}
       />
@@ -215,8 +219,8 @@ export default function HomePage() {
                 variants={fadeUp}
                 className="glass-card rounded-2xl p-6 text-center group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-600/30 transition-colors">
-                  <sol.icon className="w-7 h-7 text-purple-400" />
+                <div className="flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <sol.Icon size={56} />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{sol.title}</h3>
                 <p className="text-slate-400 text-sm">{sol.desc}</p>
@@ -306,6 +310,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CustomPackageBuilder />
 
       {/* Process Section */}
       <section className="section-padding bg-[#030810]/50">
@@ -449,12 +455,12 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Globe, title: "Website Design", desc: "Professional, fast, mobile-first websites that convert visitors into customers.", href: "/services/website", color: "text-blue-400", bg: "bg-blue-600/20", border: "border-blue-500/30" },
-              { icon: Share2, title: "Social Media", desc: "Engaging content and management for Instagram, Facebook & LinkedIn.", href: "/services/social-media", color: "text-pink-400", bg: "bg-pink-600/20", border: "border-pink-500/30" },
-              { icon: Search, title: "SEO", desc: "Rank on Google for keywords your customers search for every day.", href: "/services/seo", color: "text-green-400", bg: "bg-green-600/20", border: "border-green-500/30" },
-              { icon: Target, title: "Google Ads", desc: "Paid ads that put your business in front of ready-to-buy customers.", href: "/services/google-ads", color: "text-amber-400", bg: "bg-amber-600/20", border: "border-amber-500/30" },
-              { icon: Zap, title: "Growth Engine", desc: "Full-system growth combining ads, SEO, social, and lead tracking.", href: "/services/growth-engine", color: "text-purple-400", bg: "bg-purple-600/20", border: "border-purple-500/30" },
-              { icon: TrendingUp, title: "Lead Generation", desc: "Sales funnels and landing pages designed to generate qualified leads.", href: "/start", color: "text-cyan-400", bg: "bg-cyan-600/20", border: "border-cyan-500/30" },
+              { Icon: WebDesignIcon, title: "Website Design", desc: "Professional, fast, mobile-first websites that convert visitors into customers.", href: "/services/website" },
+              { Icon: SocialMediaIcon, title: "Social Media", desc: "Engaging content and management for Instagram, Facebook & LinkedIn.", href: "/services/social-media" },
+              { Icon: SEOIcon, title: "SEO", desc: "Rank on Google for keywords your customers search for every day.", href: "/services/seo" },
+              { Icon: GoogleAdsIcon, title: "Google Ads", desc: "Paid ads that put your business in front of ready-to-buy customers.", href: "/services/google-ads" },
+              { Icon: GrowthEngineIcon, title: "Growth Engine", desc: "Full-system growth combining ads, SEO, social, and lead tracking.", href: "/services/growth-engine" },
+              { Icon: LeadGenIcon, title: "Lead Generation", desc: "Sales funnels and landing pages designed to generate qualified leads.", href: "/start" },
             ].map((service, i) => (
               <motion.div
                 key={i}
@@ -465,8 +471,8 @@ export default function HomePage() {
                 variants={fadeUp}
               >
                 <Link href={service.href} className="glass-card rounded-2xl p-6 block group">
-                  <div className={`w-12 h-12 rounded-xl ${service.bg} border ${service.border} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <service.icon className={`w-6 h-6 ${service.color}`} />
+                  <div className="mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <service.Icon size={48} />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gradient transition-all">{service.title}</h3>
                   <p className="text-slate-400 text-sm mb-4">{service.desc}</p>

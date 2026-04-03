@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { CheckCircle, X, ArrowRight, HelpCircle } from "lucide-react";
 import CTASection from "@/components/sections/CTASection";
+import CustomPackageBuilder from "@/components/CustomPackageBuilder";
 import { getWhatsAppLink } from "@/lib/utils";
 
 const fadeUp = {
@@ -271,6 +272,8 @@ export default function PackagesPage() {
           ))}
         </div>
       </section>
+
+      <CustomPackageBuilder />
 
       <CTASection
         headline="Not Sure Which Package? Let's Talk."

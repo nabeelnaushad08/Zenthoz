@@ -24,7 +24,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Nabeel Naushad", role: "Founder & Growth Strategist", emoji: "🚀", desc: "Digital growth expert with deep UAE market knowledge. Led growth for 100+ businesses across UAE." },
+  { name: "Nabeel Naushad", role: "Founder & Growth Strategist", emoji: "🚀", desc: "Digital growth expert with deep UAE market knowledge. Led growth for 35+ businesses across UAE." },
   { name: "Digital Strategy Team", role: "SEO & Content", emoji: "🔍", desc: "UAE-focused SEO specialists who understand local search behavior and Arabic keyword research." },
   { name: "Creative Team", role: "Design & Development", emoji: "🎨", desc: "Designers and developers who build fast, beautiful, conversion-focused websites for UAE businesses." },
   { name: "Ads Team", role: "Google & Social Ads", emoji: "🎯", desc: "Certified Google Ads specialists managing millions in UAE ad spend with proven ROI track record." },
@@ -103,7 +103,7 @@ export default function AboutPage() {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { value: "100+", label: "UAE Businesses Launched" },
+                { value: "35+", label: "UAE Businesses Launched" },
                 { value: "30", label: "Days to First Clients" },
                 { value: "AED 5M+", label: "Revenue Generated" },
                 { value: "14 Days", label: "Delivery Guarantee" },
