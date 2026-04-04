@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, ArrowRight, MessageCircle, Loader2 } from "lucide-react";
+import {
+  WebDesignIcon, SocialMediaIcon, MapPinIcon, SEOIcon, GoogleAdsIcon,
+  ContentIcon, WhatsAppIcon, LeadGenIcon, BilingualIcon, AnalyticsIcon,
+} from "@/components/ServiceIcons";
 import { getWhatsAppLink } from "@/lib/utils";
 
 interface ServiceOption {
@@ -11,20 +15,20 @@ interface ServiceOption {
   desc: string;
   price: number;
   popular?: boolean;
-  emoji: string;
+  Icon: (props: { size?: number }) => JSX.Element;
 }
 
 const serviceOptions: ServiceOption[] = [
-  { id: "website", emoji: "🌐", title: "Professional Website", desc: "Mobile-first, SEO-ready website (up to 5 pages)", price: 1999, popular: true },
-  { id: "social", emoji: "📱", title: "Social Media Setup", desc: "Instagram, Facebook & LinkedIn profile setup + branding", price: 799 },
-  { id: "gmb", emoji: "📍", title: "Google My Business", desc: "Fully optimised GMB listing so customers find you locally", price: 499 },
-  { id: "seo", emoji: "🔍", title: "SEO Foundation", desc: "On-page SEO, keyword strategy & Google ranking plan", price: 1499, popular: true },
-  { id: "google-ads", emoji: "🎯", title: "Google Ads Campaign", desc: "Targeted paid ads that bring ready-to-buy customers", price: 1999 },
-  { id: "social-mgmt", emoji: "✍️", title: "Social Media Management", desc: "Monthly content creation & posting (4×/week)", price: 1500 },
-  { id: "whatsapp", emoji: "💬", title: "WhatsApp Business Setup", desc: "Business profile, catalogue & auto-reply configured", price: 299 },
-  { id: "leads", emoji: "⚡", title: "Lead Generation Funnel", desc: "Landing page + lead capture form + follow-up automation", price: 2499 },
-  { id: "bilingual", emoji: "🌍", title: "Arabic + English Content", desc: "Bilingual website copy & social content for both audiences", price: 899 },
-  { id: "analytics", emoji: "📊", title: "Analytics & Reporting", desc: "Google Analytics + monthly performance report", price: 399 },
+  { id: "website",     Icon: WebDesignIcon,   title: "Professional Website",      desc: "Mobile-first, SEO-ready website (up to 5 pages)",                price: 1999, popular: true },
+  { id: "social",      Icon: SocialMediaIcon,  title: "Social Media Setup",         desc: "Instagram, Facebook & LinkedIn profile setup + branding",         price: 799  },
+  { id: "gmb",         Icon: MapPinIcon,       title: "Google My Business",         desc: "Fully optimised GMB listing so customers find you locally",        price: 499  },
+  { id: "seo",         Icon: SEOIcon,          title: "SEO Foundation",             desc: "On-page SEO, keyword strategy & Google ranking plan",             price: 1499, popular: true },
+  { id: "google-ads",  Icon: GoogleAdsIcon,    title: "Google Ads Campaign",        desc: "Targeted paid ads that bring ready-to-buy customers",             price: 1999 },
+  { id: "social-mgmt", Icon: ContentIcon,      title: "Social Media Management",    desc: "Monthly content creation & posting (4×/week)",                   price: 1500 },
+  { id: "whatsapp",    Icon: WhatsAppIcon,     title: "WhatsApp Business Setup",    desc: "Business profile, catalogue & auto-reply configured",             price: 299  },
+  { id: "leads",       Icon: LeadGenIcon,      title: "Lead Generation Funnel",     desc: "Landing page + lead capture form + follow-up automation",         price: 2499 },
+  { id: "bilingual",   Icon: BilingualIcon,    title: "Arabic + English Content",   desc: "Bilingual website copy & social content for both audiences",      price: 899  },
+  { id: "analytics",   Icon: AnalyticsIcon,    title: "Analytics & Reporting",      desc: "Google Analytics + monthly performance report",                   price: 399  },
 ];
 
 const DISCOUNT_THRESHOLD = 3;
@@ -171,7 +175,9 @@ Submitted: ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })} (UA
                       </span>
                     )}
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl shrink-0 mt-0.5">{service.emoji}</span>
+                      <div className="shrink-0 mt-0.5">
+                        <service.Icon size={40} />
+                      </div>
                       <div className="flex-1 min-w-0">
                         <div className="font-semibold text-white text-sm mb-1 pr-14">{service.title}</div>
                         <div className="text-xs text-slate-500 mb-2 leading-relaxed">{service.desc}</div>
@@ -210,7 +216,8 @@ Submitted: ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })} (UA
                           className="flex items-center justify-between text-sm"
                         >
                           <span className="text-slate-300 flex items-center gap-1.5">
-                            <span>{s.emoji}</span> {s.title}
+                            <s.Icon size={22} />
+                            {s.title}
                           </span>
                           <span className="text-slate-400 shrink-0 ml-2">AED {s.price.toLocaleString()}</span>
                         </motion.li>
