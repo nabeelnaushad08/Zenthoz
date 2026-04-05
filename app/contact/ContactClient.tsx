@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Clock, MessageCircle, Mail, Phone } from "lucide-react";
+import { UAEFlag } from "@/components/ServiceIcons";
 import LeadForm from "@/components/LeadForm";
 import { getWhatsAppLink, getCallLink, EMAIL, PHONE_DISPLAY } from "@/lib/utils";
 
@@ -84,7 +85,7 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">Location</div>
-                  <div className="text-slate-300 text-sm">Dubai, United Arab Emirates 🇦🇪</div>
+                  <div className="text-slate-300 text-sm flex items-center gap-1.5">Dubai, United Arab Emirates <UAEFlag width={22} height={15} /></div>
                   <div className="text-slate-500 text-xs mt-0.5">Serving Dubai • Abu Dhabi • Sharjah • All UAE</div>
                 </div>
               </div>

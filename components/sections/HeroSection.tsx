@@ -6,7 +6,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { getWhatsAppLink } from "@/lib/utils";
 
 interface HeroSectionProps {
-  badge?: string;
+  badge?: React.ReactNode;
   headline: string;
   subheadline: string;
   primaryCTA?: { label: string; href: string };

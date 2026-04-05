@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Clock, Shield, Users, Star } from "lucide-react";
+import { UAEFlag } from "@/components/ServiceIcons";
 import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
 import { getWhatsAppLink } from "@/lib/utils";
@@ -50,7 +51,7 @@ export default function StartClient() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 bg-purple-600/10 border border-purple-500/30 text-purple-300"
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Your journey starts here — 🇦🇪 UAE businesses only
+            Your journey starts here — <UAEFlag width={20} height={14} /> UAE businesses only
           </motion.div>
 
           <motion.h1

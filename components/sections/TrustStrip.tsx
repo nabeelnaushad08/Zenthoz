@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SpeedIcon, ServiceBizIcon, GrowthEngineIcon, SecurityIcon, WhatsAppIcon } from "@/components/ServiceIcons";
+import { SpeedIcon, ServiceBizIcon, GrowthEngineIcon, SecurityIcon, WhatsAppIcon, UAEFlag } from "@/components/ServiceIcons";
 
 const trustItems = [
   {
-    Icon: () => <span className="text-xl">🇦🇪</span>,
+    Icon: () => <UAEFlag width={32} height={22} />,
     text: "Built for UAE Businesses",
   },
   { Icon: () => <SpeedIcon size={28} />, text: "Fast Delivery (7–14 Days)" },

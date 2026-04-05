@@ -1,6 +1,17 @@
 import Link from "next/link";
 import { getWhatsAppLink, EMAIL, PHONE_DISPLAY, getCallLink } from "@/lib/utils";
 
+function UAEFlagInline() {
+  return (
+    <svg width="28" height="19" viewBox="0 0 36 24" style={{ borderRadius: 2, display: "inline-block", verticalAlign: "middle", flexShrink: 0 }}>
+      <rect x="0" y="0" width="12" height="24" fill="#EF3340" />
+      <rect x="12" y="0" width="24" height="8" fill="#009A44" />
+      <rect x="12" y="8" width="24" height="8" fill="#FFFFFF" />
+      <rect x="12" y="16" width="24" height="8" fill="#000000" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="border-t border-purple-900/20 bg-[#030810]">
@@ -130,7 +141,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4 text-sm text-slate-500">
             <span className="flex items-center gap-1.5">
-              <span className="text-lg">🇦🇪</span> Built for UAE Businesses
+              <UAEFlagInline /> Built for UAE Businesses
             </span>
             <span>|</span>
             <a href={`mailto:${EMAIL}`} className="hover:text-purple-400 transition-colors">{EMAIL}</a>

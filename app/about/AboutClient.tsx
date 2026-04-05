@@ -7,6 +7,7 @@ import CTASection from "@/components/sections/CTASection";
 import {
   GrowthEngineIcon, SEOIcon, DesignIcon, GoogleAdsIcon,
   TargetIcon, SpeedIcon, WhatsAppIcon, SecurityIcon, UsersIcon, GlobeNetIcon,
+  UAEFlag,
 } from "@/components/ServiceIcons";
 
 const fadeUp = {
@@ -50,7 +51,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 bg-purple-600/10 border border-purple-500/30 text-purple-300"
           >
-            🇦🇪 Based in UAE. Built for UAE.
+            <UAEFlag width={24} height={16} /> Based in UAE. Built for UAE.
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -197,7 +198,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="glass-card rounded-3xl p-10"
           >
-            <div className="text-5xl mb-6">🇦🇪</div>
+            <div className="flex justify-center mb-6"><UAEFlag width={72} height={48} /></div>
             <h2 className="text-3xl font-black text-white mb-4">Why We Focus on UAE</h2>
             <p className="text-slate-300 mb-4">
               UAE is one of the most entrepreneurial markets in the world. Thousands of new businesses register every month, and the opportunity is massive.

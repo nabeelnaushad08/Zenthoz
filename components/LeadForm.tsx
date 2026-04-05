@@ -113,11 +113,8 @@ Submitted: ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })} (UA
           <CheckCircle className="w-8 h-8 text-green-400" />
         </div>
         <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-        <p className="text-slate-400 mb-2">
+        <p className="text-slate-400 mb-6">
           We received your details and will contact you within 2 hours.
-        </p>
-        <p className="text-slate-500 text-sm mb-6">
-          A confirmation has been sent to <span className="text-purple-400">{formData.email}</span>
         </p>
         <a
           href={getWhatsAppLink(

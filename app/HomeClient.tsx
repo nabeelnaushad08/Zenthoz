@@ -8,6 +8,7 @@ import TrustStrip from "@/components/sections/TrustStrip";
 import CTASection from "@/components/sections/CTASection";
 import {
   WebDesignIcon, SocialMediaIcon, SEOIcon, GoogleAdsIcon, GrowthEngineIcon, LeadGenIcon,
+  UAEFlag,
 } from "@/components/ServiceIcons";
 import CustomPackageBuilder from "@/components/CustomPackageBuilder";
 import { getWhatsAppLink } from "@/lib/utils";
@@ -107,7 +108,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection
-        badge="🇦🇪 #1 Digital Growth Partner for New UAE Businesses"
+        badge={<><UAEFlag width={22} height={15} /> #1 Digital Growth Partner for New UAE Businesses</>}
         headline="Launch Your Business Online & Get Your First Customers in 30 Days"
         subheadline="Websites, Social Media & Lead Generation — Done For You. We take your new UAE business from 0 to clients."
         primaryCTA={{ label: "Start My Business Online", href: "/start" }}
@@ -337,10 +338,7 @@ export default function HomePage() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            {/* Connecting line */}
-            <div className="hidden lg:block absolute top-12 left-[15%] right-[15%] h-px bg-gradient-to-r from-purple-600/50 to-blue-600/50" />
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((step, i) => (
               <motion.div
                 key={i}

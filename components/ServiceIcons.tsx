@@ -513,6 +513,23 @@ export function ShieldIcon({ size = 48, className = "" }: IconProps) {
   );
 }
 
+// ── UAE Flag SVG ───────────────────────────────────────────────────────────
+
+export function UAEFlag({ width = 36, height = 24, className = "" }: { width?: number; height?: number; className?: string }) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 36 24" className={className} style={{ borderRadius: 3, overflow: "hidden", display: "inline-block", verticalAlign: "middle", flexShrink: 0 }}>
+      {/* Red vertical stripe (left 1/3) */}
+      <rect x="0" y="0" width="12" height="24" fill="#EF3340" />
+      {/* Green horizontal band (top) */}
+      <rect x="12" y="0" width="24" height="8" fill="#009A44" />
+      {/* White horizontal band (middle) */}
+      <rect x="12" y="8" width="24" height="8" fill="#FFFFFF" />
+      {/* Black horizontal band (bottom) */}
+      <rect x="12" y="16" width="24" height="8" fill="#000000" />
+    </svg>
+  );
+}
+
 // ── Emoji → SVG icon lookup map ────────────────────────────────────────────
 // Used by ServicePageTemplate and IndustryPageTemplate to replace emoji with SVG
 
