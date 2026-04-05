@@ -7,7 +7,7 @@ import CTASection from "@/components/sections/CTASection";
 import {
   GrowthEngineIcon, SEOIcon, DesignIcon, GoogleAdsIcon,
   TargetIcon, SpeedIcon, WhatsAppIcon, SecurityIcon, UsersIcon, GlobeNetIcon,
-  UAEFlag,
+  WebDesignIcon, UAEFlag,
 } from "@/components/ServiceIcons";
 
 const fadeUp = {
@@ -28,11 +28,20 @@ const values = [
   { Icon: GlobeNetIcon, title: "Built for UAE", desc: "Every strategy, every piece of content, every ad — designed specifically for the UAE market and consumer." },
 ];
 
-const team = [
-  { name: "Nabeel Naushad", role: "Founder & Growth Strategist", Icon: GrowthEngineIcon, desc: "Digital growth expert with deep UAE market knowledge. Led growth for 35+ businesses across UAE." },
-  { name: "Digital Strategy Team", role: "SEO & Content", Icon: SEOIcon, desc: "UAE-focused SEO specialists who understand local search behavior and Arabic keyword research." },
-  { name: "Creative Team", role: "Design & Development", Icon: DesignIcon, desc: "Designers and developers who build fast, beautiful, conversion-focused websites for UAE businesses." },
-  { name: "Ads Team", role: "Google & Social Ads", Icon: GoogleAdsIcon, desc: "Certified Google Ads specialists managing millions in UAE ad spend with proven ROI track record." },
+const timeline = [
+  { week: "Days 1–3", Icon: WebDesignIcon, label: "Discovery & Strategy", desc: "We analyse your business, competitors, and target customers. You get a tailored digital growth plan." },
+  { week: "Days 4–7", Icon: DesignIcon, label: "Build & Design", desc: "Your website, social profiles, and Google My Business listing are built and branded to perfection." },
+  { week: "Week 2", Icon: SEOIcon, label: "Go Live & Optimise", desc: "Everything launches. SEO foundation is set. Google Ads go live if included in your package." },
+  { week: "Month 2+", Icon: GrowthEngineIcon, label: "Scale & Grow", desc: "Monthly content, ads optimisation, and reporting. Your lead flow compounds every month." },
+];
+
+const differentiators = [
+  { Icon: SpeedIcon, title: "14-Day Delivery", desc: "We deliver your full digital presence in 14 days — guaranteed. No other UAE agency matches this." },
+  { Icon: UAEFlag, title: "UAE-Only Focus", desc: "Every strategy, keyword, and ad is built for the UAE market. We don't reuse Western playbooks." },
+  { Icon: TargetIcon, title: "Leads, Not Likes", desc: "We measure success in client enquiries and revenue — not vanity metrics like followers or impressions." },
+  { Icon: SecurityIcon, title: "No Lock-in Contracts", desc: "Month-to-month. If we're not delivering results, you can walk away. We earn your trust every month." },
+  { Icon: WhatsAppIcon, title: "WhatsApp-First Support", desc: "Reach your dedicated manager on WhatsApp anytime. UAE business moves fast — so do we." },
+  { Icon: GlobeNetIcon, title: "Arabic + English", desc: "We create bilingual content that reaches both Arabic and English-speaking customers across UAE." },
 ];
 
 export default function AboutPage() {
@@ -157,17 +166,27 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Growth Timeline */}
       <section className="section-padding bg-[#030810]/50 relative z-10">
         <div className="container-custom">
           <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 bg-purple-600/10 border border-purple-500/30 text-purple-300"
+            >
+              From Day 1 to Month 2+
+            </motion.div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              The <span className="text-gradient">Team</span>
+              Your <span className="text-gradient">Growth Timeline</span>
             </h2>
-            <p className="text-slate-400">UAE specialists dedicated to your business growth.</p>
+            <p className="text-slate-400 max-w-xl mx-auto">
+              Here's exactly what happens after you sign up — no vague promises, just a clear roadmap.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {timeline.map((item, i) => (
               <motion.div
                 key={i}
                 custom={i}
@@ -175,14 +194,47 @@ export default function AboutPage() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="glass-card rounded-2xl p-6 text-center"
+                className="glass-card rounded-2xl p-6 relative"
               >
-                <div className="flex justify-center mb-4">
-                  <member.Icon size={56} />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-600/20 text-purple-400 border border-purple-500/30 mb-4">
+                  {item.week}
                 </div>
-                <h3 className="font-bold text-white mb-0.5">{member.name}</h3>
-                <div className="text-xs font-medium text-purple-400 mb-3">{member.role}</div>
-                <p className="text-slate-400 text-sm">{member.desc}</p>
+                <div className="mb-4"><item.Icon size={48} /></div>
+                <h3 className="font-bold text-white mb-2">{item.label}</h3>
+                <p className="text-slate-400 text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why We're Different */}
+      <section className="section-padding relative z-10">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+              Why Businesses <span className="text-gradient">Choose Zenthoz</span>
+            </h2>
+            <p className="text-slate-400 max-w-xl mx-auto">
+              Not just another agency. Here's what actually makes us different.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {differentiators.map((item, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="glass-card rounded-2xl p-6 flex gap-4"
+              >
+                <div className="shrink-0"><item.Icon size={44} /></div>
+                <div>
+                  <h3 className="font-bold text-white mb-1.5">{item.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>

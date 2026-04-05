@@ -513,6 +513,39 @@ export function ShieldIcon({ size = 48, className = "" }: IconProps) {
   );
 }
 
+export function TrendDownIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(239,68,68,0.15)" />
+      <path d="M10 14l10 10 6-6 12 12" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M32 30h8v8" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="10" cy="14" r="2.5" fill="#ef4444"/>
+    </svg>
+  );
+}
+
+export function TrendUpIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(34,197,94,0.15)" />
+      <path d="M10 34l10-10 6 6 12-14" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M32 16h8v8" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="10" cy="34" r="2.5" fill="#22c55e"/>
+    </svg>
+  );
+}
+
+export function LightbulbIcon({ size = 48, className = "" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
+      <rect width="48" height="48" rx="12" fill="rgba(139,92,246,0.15)" />
+      <path d="M24 10a11 11 0 00-7 19.4V33a1 1 0 001 1h12a1 1 0 001-1v-3.6A11 11 0 0024 10z" stroke="#8b5cf6" strokeWidth="2" fill="none"/>
+      <path d="M19 37h10M20 40h8" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M24 15v4M17 18l3 3M31 18l-3 3" stroke="#8b5cf6" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
 // ── UAE Flag SVG ───────────────────────────────────────────────────────────
 
 export function UAEFlag({ width = 36, height = 24, className = "" }: { width?: number; height?: number; className?: string }) {

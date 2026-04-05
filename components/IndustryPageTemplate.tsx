@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CheckCircle, ArrowRight, TrendingUp, Star } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import CTASection from "@/components/sections/CTASection";
-import { EmojiIcon } from "@/components/ServiceIcons";
+import { EmojiIcon, TrendDownIcon, LightbulbIcon, TrendUpIcon } from "@/components/ServiceIcons";
 import { getWhatsAppLink } from "@/lib/utils";
 
 interface CaseStudy {
@@ -180,17 +180,17 @@ export default function IndustryPageTemplate({
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center p-6 rounded-2xl bg-red-500/5 border border-red-500/20">
-                <div className="text-2xl mb-2">📉</div>
+                <div className="flex justify-center mb-3"><TrendDownIcon size={48} /></div>
                 <div className="text-xs font-semibold text-red-400 uppercase tracking-wider mb-2">Before</div>
                 <p className="text-slate-300 text-sm">{caseStudy.before}</p>
               </div>
               <div className="text-center p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20">
-                <div className="text-2xl mb-2">⚡</div>
+                <div className="flex justify-center mb-3"><LightbulbIcon size={48} /></div>
                 <div className="text-xs font-semibold text-purple-400 uppercase tracking-wider mb-2">Strategy</div>
                 <p className="text-slate-300 text-sm">{caseStudy.strategy}</p>
               </div>
               <div className="text-center p-6 rounded-2xl bg-green-500/5 border border-green-500/20">
-                <div className="text-2xl mb-2">📈</div>
+                <div className="flex justify-center mb-3"><TrendUpIcon size={48} /></div>
                 <div className="text-xs font-semibold text-green-400 uppercase tracking-wider mb-2">After</div>
                 <p className="text-slate-300 text-sm">{caseStudy.after}</p>
               </div>
